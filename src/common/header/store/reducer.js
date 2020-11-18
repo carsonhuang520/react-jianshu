@@ -1,14 +1,16 @@
+import * as constants from './constants'
+
 const defaultState = {
   focused: false,
 }
 
-const fn = (state = defaultState, action) => {
-  if (action.type === 'search_focus') {
+const reducer = (state = defaultState, action) => {
+  if (action.type === constants.SEARCH_FOCUS) {
     return {
       focused: true,
     }
   }
-  if (action.type === 'search_blur') {
+  if (action.type === constants.SEARCH_BLUR) {
     return {
       focused: false,
     }
@@ -16,4 +18,4 @@ const fn = (state = defaultState, action) => {
   return state
 }
 
-export default fn
+export default reducer

@@ -11,6 +11,7 @@ import {
   SearchWrapper,
 } from './style.js'
 import { CSSTransition } from 'react-transition-group'
+import { actionCreators } from './store'
 
 function Header(props) {
   return (
@@ -55,17 +56,11 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     handleFocus: () => {
-      const action = {
-        type: 'search_focus',
-      }
-      dispatch(action)
+      dispatch(actionCreators.getFocusAction())
     },
 
     handleBlur: () => {
-      const action = {
-        type: 'search_blur',
-      }
-      dispatch(action)
+      dispatch(actionCreators.getBlurAction())
     },
   }
 }
