@@ -4,8 +4,8 @@ import Topic from './components/Topic'
 import Recommend from './components/Recommend'
 import Writer from './components/Writer'
 import { connect } from 'react-redux'
-import axios from 'axios'
 import { HomeLeft, HomeRight, HomeWrapper } from './style'
+import { actionCreators } from './store'
 
 class Home extends Component {
   render() {
@@ -29,24 +29,14 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    axios.get('/api/home.json').then((res) => {
-      const result = res.data.data
-      const action = {
-        type: 'init_home_data',
-        topicList: result.topicList,
-        articleList: result.articleList,
-        recommendList: result.recommendList,
-      }
-      this.props.initHomeData(action)
-      // console.log(result)
-    })
+    this.props.initHomeData()
   }
 }
 
 const mapDispatch = (dispatch) => {
   return {
-    initHomeData: (action) => {
-      dispatch(action)
+    initHomeData: () => {
+      dispatch(actionCreators.initHomeDataAction())
     },
   }
 }
