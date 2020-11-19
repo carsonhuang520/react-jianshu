@@ -79,6 +79,7 @@ export const SearchInfo = styled.div`
   border-radius: 4px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
+  background: #fff;
 `
 
 export const SearchInfoTitle = styled.div`
