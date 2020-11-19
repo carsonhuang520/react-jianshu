@@ -17,6 +17,13 @@ const getMoreList = (list) => {
   }
 }
 
+export const toggleTopShow = (flag) => {
+  return {
+    type: constants.TOGGLE_SCROLL_TOP,
+    flag,
+  }
+}
+
 export const initHomeDataAction = () => {
   return (dispatch) => {
     axios.get('/api/home.json').then((res) => {

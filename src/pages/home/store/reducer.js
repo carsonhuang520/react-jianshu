@@ -5,6 +5,7 @@ const defaultState = fromJS({
   topicList: [],
   articleList: [],
   recommendList: [],
+  showScroll: false,
 })
 
 const reducer = (state = defaultState, action) => {
@@ -19,6 +20,9 @@ const reducer = (state = defaultState, action) => {
     return state.merge({
       articleList: state.get('articleList').concat(fromJS(action.list)),
     })
+  }
+  if (action.type === constants.TOGGLE_SCROLL_TOP) {
+    return state.set('showScroll', action.flag)
   }
   return state
 }
