@@ -2,6 +2,14 @@ import * as constants from './constants'
 import axios from 'axios'
 import { fromJS } from 'immutable'
 
+const getListAction = (data) => {
+  return {
+    type: constants.GET_LIST,
+    data: fromJS(data),
+    totalPage: Math.ceil(data.length / 10),
+  }
+}
+
 export const getFocusAction = () => {
   return {
     type: constants.SEARCH_FOCUS,
@@ -14,10 +22,22 @@ export const getBlurAction = () => {
   }
 }
 
-const getListAction = (data) => {
+export const mouseEnterAction = () => {
   return {
-    type: constants.GET_LIST,
-    data: fromJS(data),
+    type: constants.MOUSE_ENTER,
+  }
+}
+
+export const mouseLeaveAction = () => {
+  return {
+    type: constants.MOUSE_LEAVE,
+  }
+}
+
+export const changePageAction = (page) => {
+  return {
+    type: constants.CHANGE_PAGE,
+    page,
   }
 }
 
@@ -28,7 +48,6 @@ export const getHeaderListAction = () => {
       .then((res) => {
         const data = res.data
         dispatch(getListAction(data.data))
-        console.log('succ')
       })
       .catch((err) => {
         console.log(err)

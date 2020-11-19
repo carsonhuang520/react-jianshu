@@ -99,7 +99,9 @@ export const SearchInfoList = styled.div`
   overflow: hidden;
 `
 
-export const SearchInfoItem = styled.a`
+export const SearchInfoItem = styled.a.attrs({
+  href: '/',
+})`
   float: left;
   font-size: 12px;
   line-height: 20px;
@@ -109,6 +111,7 @@ export const SearchInfoItem = styled.a`
   border: 1px solid #ddd;
   border-radius: 3px;
   padding: 0 5px;
+  text-decoration: none;
 `
 
 export const NavSearch = styled.input.attrs({
