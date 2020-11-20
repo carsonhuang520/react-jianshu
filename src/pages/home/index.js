@@ -60,7 +60,7 @@ const mapDispatch = (dispatch) => {
     initHomeData: () => {
       dispatch(actionCreators.initHomeDataAction())
     },
-    changeScrollTopShow() {
+    changeScrollTopShow: () => {
       if (document.documentElement.scrollTop > 100) {
         dispatch(actionCreators.toggleTopShow(true))
       } else {
