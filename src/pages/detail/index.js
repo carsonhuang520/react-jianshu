@@ -14,6 +14,7 @@ class Detail extends Component {
   }
 
   componentDidMount() {
+    console.log(this.props.match)
     this.props.handleInitDetail()
   }
 }
